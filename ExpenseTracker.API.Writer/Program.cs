@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using ExpenseTracker.DB;
+
 namespace ExpenseTracker.API.Writer
 {
     public class Program
@@ -14,6 +17,8 @@ namespace ExpenseTracker.API.Writer
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<ExpenseTrackerContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("ExpenseTrackerConnection")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
