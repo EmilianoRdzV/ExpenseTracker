@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpenseTracker.Model
+namespace ExpenseTracker.Model.DTOs
 {
     public class GastoDT
     {
@@ -13,6 +13,9 @@ namespace ExpenseTracker.Model
 
         [Required(ErrorMessage = "Fecha obligatoria.")]
         public DateOnly Fecha { get; set; }
+
+        [Required]
+        TimeOnly Hora { get; set; }
 
         [Required(ErrorMessage = "Descripcion obligatoria.")]
         public string Descripcion { get; set; }
